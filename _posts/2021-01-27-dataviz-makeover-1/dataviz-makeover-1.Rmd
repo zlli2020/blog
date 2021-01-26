@@ -1,0 +1,31 @@
+---
+title: "DataViz Makeover 1"
+description: |
+  DataViz Makeover 1
+author:
+  - name: Li Zhenglong
+    url: 
+date: 01-27-2021
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# 1.0 Critiques and Suggestions 
+
+# 2.0 Sketch of Proposed Design
+
+# 3.0 Data Visualization Steps
+
+# 4.0 Major observations 
+
+
+
+
