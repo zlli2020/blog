@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js","picture/1.png","picture/arrow legend.png"]}
+  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js","picture/0.PNG","picture/1.png","picture/10.PNG","picture/11.PNG","picture/12.PNG","picture/13.PNG","picture/14.PNG","picture/15.PNG","picture/16.PNG","picture/17.PNG","picture/18.PNG","picture/19.PNG","picture/2.PNG","picture/3.PNG","picture/4.PNG","picture/5.PNG","picture/6.PNG","picture/7.PNG","picture/8.PNG","picture/9.PNG","picture/arrow legend.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2055,6 +2055,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
+<li><a href="#original-data-visualisation">Original Data Visualisation</a></li>
 <li><a href="#critiques-and-suggestions">1.0 Critiques and Suggestions</a><ul>
 <li><a href="#clarity">1.1 Clarity</a></li>
 <li><a href="#aesthetic">1.2 Aesthetic</a></li>
@@ -2069,6 +2070,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><a href="#major-observations">4.0 Major observations</a></li>
 </ul>
 </nav>
+</div>
+<h1 id="original-data-visualisation">Original Data Visualisation</h1>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/0.PNG" width="50%" /></p>
 </div>
 <h1 id="critiques-and-suggestions">1.0 Critiques and Suggestions</h1>
 <h2 id="clarity">1.1 Clarity</h2>
@@ -2094,7 +2099,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <tr class="even">
 <td>2</td>
 <td>The title “Resident labour force by age - Per Cent” did not effectively communicate clearly if the measure used is by percentage proportion breakdown, participation rate, or difference in percentage change over the years.</td>
-<td>To reflect the measuring unit LFPR and the comparison between 2009 and 2019.Chart title will explicitly state the measure and breakdown as “Percentage change in LFPR by Age Group - 2009 versus 2019”</td>
+<td>To reflect the measuring unit LFPR and the comparison between 2009 and 2019. Chart title need to explicitly state the measure and breakdown. “Percentage change in LFPR by Age Group - 2009 versus 2019”</td>
 </tr>
 <tr class="odd">
 <td>3</td>
@@ -2108,8 +2113,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>The line graph may not be effectively used for the categorical data. It may unintendedly emphasize the change between the age groups instead of the comparison of the two years.</td>
-<td>Replace with categorial charts using an arrow chart(similar effect as a bar chart highlighting the differences) to emphasize the change in 2009 and 2019.</td>
+<td>The line graph may not be effectively used for the categorical data. It may unintended emphasize the change between the age groups instead of the comparison of the two years.</td>
+<td>Replace with categorical charts using an arrow chart(similar effect as a bar chart highlighting the differences) to emphasize the change in 2009 and 2019.</td>
 </tr>
 <tr class="even">
 <td>6</td>
@@ -2140,7 +2145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </tr>
 <tr class="even">
 <td>2</td>
-<td>No contrasting colors for comparison. The color grey and blue are similar and dull and could be hard for viewers with color blindness.</td>
+<td>No contrasting colors for comparison. The color gray and blue are similar and dull and could be hard for viewers with color blindness.</td>
 <td>Use contrasting color-blind friendly colors such as red and blue colors to highlight differences appropriately.</td>
 </tr>
 <tr class="odd">
@@ -2156,62 +2161,120 @@ document.addEventListener('DOMContentLoaded', function() {
 </tbody>
 </table>
 <h1 id="sketch-of-proposed-design">2.0 Sketch of Proposed Design</h1>
+<p>Using arrow chart, each arrow represent each age group clearly the change in terms of LFPR percentage and the start and end point of the two years. the relative change</p>
+<p>dashboard title and annotation allows reader to quickly scan and derive insights.</p>
+<p>concise bar chart may have too many bar becoming harder to read when there are many points.</p>
+<p>sparklines</p>
 <h1 id="data-visualization-step-by-step-guide">3.0 Data Visualization Step-by-step guide</h1>
 <h2 id="data-preparation">3.1 Data preparation</h2>
 <h3 id="pre-import-data-prep">3.1.1 Pre-import data prep</h3>
-<p>Copy the data from Excel <strong>sheet “T5_T” in mrsd_2019LabourForce_T5.xlsx</strong> into the <strong>new sheet Data</strong>. Remove the empty columns and format the records as shown.<img src="picture/1.png" /></p>
+<p>Copy the data from Excel <strong>sheet “T5_T” in mrsd_2019LabourForce_T5.xlsx</strong> into the <strong>new sheet Data</strong>. Remove the empty columns and format the records as shown.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/1.png" width="50%" /></p>
+</div>
 <h3 id="import-data-into-tableau">3.1.1 Import data into Tableau</h3>
 <ol type="i">
 <li>Import <strong>sheet “Data”</strong> from Excel into Tableau.</li>
 <li>Set <strong>field names are in first row.</strong></li>
 <li>Select column <strong>2009</strong> to <strong>2019</strong> and right click set pivot.</li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/2.PNG" width="50%" /></p>
+</div>
 <h3 id="rename-pivoted-columns">3.1.2 Rename pivoted columns</h3>
 <ol type="i">
 <li>Rename column <strong>Pivot Field Names</strong> to <strong>Year</strong></li>
 <li>Rename column <strong>Pivot Field Values</strong> to <strong>LFPR %</strong></li>
 <li>Format <strong>Year</strong> as date</li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/3.PNG" width="25%" /></p>
+</div>
 <h2 id="create-arrow-chart">3.2 Create Arrow Chart</h2>
 <h3 id="drag-and-drop-the-dimensions-and-measure">3.2.1 Drag and drop the dimensions and measure</h3>
 <ol type="i">
-<li><p>Drag <strong>Age group</strong> to Columns</p></li>
-<li><p>Drag <strong>Year</strong> to Filters, select only <strong>2009</strong> and <strong>2019</strong>.</p></li>
-<li><p>Drag <strong>LFPR %</strong> to Rows</p></li>
-<li><p>Set <em>Marks</em> as line chart</p></li>
-<li><p>Drag <em>Year</em> to Path ### 3.2.2 Create Calculated Fields</p></li>
-<li><p><strong>Analysis -&gt; Create Calculated Fields -&gt; Direction</strong>. This is to get the difference of LFPR % of 2019 – 2009 to set the color and shape of the arrow chart. Click on <em>Default Table Calculation</em> to set the definition <strong>compute as Year</strong> and <strong>At the level year of year</strong></p></li>
-<li><p>Create new Calculated Field, <em>Shape</em></p></li>
+<li>Drag <strong>Age group</strong> to Columns</li>
+<li>Drag <strong>Year</strong> to Filters, select only <strong>2009</strong> and <strong>2019</strong>.</li>
+<li>Drag <strong>LFPR %</strong> to Rows</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/4.PNG" width="50%" /></p>
+</div>
+<ol start="4" type="i">
+<li>Set <strong>Marks</strong> as line chart</li>
+<li>Drag <strong>Year</strong> to Path</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/5.PNG" width="50%" /></p>
+</div>
+<h3 id="create-calculated-fields">3.2.2 Create Calculated Fields</h3>
+<ol type="i">
+<li><strong>Analysis -&gt; Create Calculated Fields -&gt; Direction</strong>. This is to get the difference of LFPR % of 2019 – 2009 to set the color and shape of the arrow chart. Click on <strong>Default Table Calculation</strong> to set the definition <strong>compute as Year</strong> and <strong>At the level year of year</strong></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/6.PNG" width="35%" /></p>
+</div>
+<ol start="2" type="i">
+<li>Create new Calculated Field, <em>Shape</em></li>
 </ol>
 <h3 id="create-shape-and-dual-axis">3.2.3 Create Shape and dual axis</h3>
 <ol type="i">
-<li>Drag **LFPR %* *to Rows again</li>
+<li>Drag <strong>LFPR %</strong> to Rows again</li>
 <li>Set Marks as <strong>Shape</strong></li>
 <li>Drag <strong>Year</strong> to detail</li>
 <li>Apply <strong>Dual Axis</strong></li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/7.PNG" width="50%" /></p>
+</div>
 <h3 id="create-arrow-head">3.2.4 Create Arrow Head</h3>
 <ol type="i">
 <li>Create new Calculated Field call <strong>shape</strong> and set positive or negative based on the [Direction] created earlier.</li>
-<li>Drag field <strong>Shape</strong> into both Color and change the colour to <strong>red</strong> and <strong>blue</strong></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/8.PNG" width="50%" /></p>
+</div>
+<ol start="2" type="i">
+<li>Drag field <strong>Shape</strong> into both Color and change the color to <strong>red</strong> and <strong>blue</strong></li>
 <li>Drag field <strong>Shape</strong> again to shape (mark) and change shape palette to filled - <strong>triangle up</strong> and <strong>down</strong> for <strong>+</strong> and <strong>-</strong> respectively</li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/9.PNG" width="50%" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/10.PNG" width="50%" /></p>
+</div>
 <h3 id="remove-the-extra-triangle">3.2.5 Remove the extra triangle</h3>
-<p>i)To remove the extra triangle, create new calculated field call <strong>Size of Shape</strong> ii)Drag this new field to <strong>Size</strong> and this will change the shape sizes are not [Year] = 2019 and set size as 0 which making the triangle disappear.</p>
+<p>i)To remove the extra triangle, create new calculated field call <strong>Size of Shape</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/11.PNG" width="50%" /></p>
+</div>
+<p>ii)Drag this new field to <strong>Size</strong> and this will change the shape sizes are not [Year] = 2019 and set size as 0 which making the triangle disappear.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/12.PNG" width="50%" /></p>
+</div>
 <h3 id="complete-the-arrow">3.2.6 Complete the Arrow</h3>
 <ol type="i">
-<li>To change synchronize the line colour, select <strong>line</strong> Mark and drag <strong>Shape</strong> to Color. Click on <strong>Color</strong> and set <strong>markers to all</strong>. This will put the dot to better represent the starting point 2009.</li>
+<li>To change synchronize the line color, select <strong>line</strong> Mark and drag <strong>Shape</strong> to Color. Click on <strong>Color</strong> and set <strong>markers to all</strong>. This will put the dot to better represent the starting point 2009.</li>
 <li><strong>Synchronize</strong> the Right Y axis.</li>
 <li>Click on <strong>Size</strong> to increase the arrow line.</li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/13.PNG" width="50%" /></p>
+</div>
 <h3 id="add-in-the-label">3.2.7 Add in the % label</h3>
 <ol type="i">
-<li><p>Select Shape Mark and drag <strong>Direction</strong> to Label</p></li>
-<li><p>Under label appearance edit label <strong>&lt;AGG(Direction)&gt; %</strong> to add %.</p></li>
-<li><p>Under font click <strong>match Mark color</strong></p></li>
-<li><p>Alignment set to Center and Top</p></li>
-<li><p>Hide repeated values in the Chart by setting the Mark Label <strong>“Never Show”</strong>.</p></li>
-<li><p>Remove the Right Y Axis</p></li>
+<li>Select Shape Mark and drag <strong>Direction</strong> to Label</li>
+<li>Under label appearance edit label <strong>&lt;AGG(Direction)&gt; %</strong> to add %.</li>
+<li>Under font click <strong>match Mark color</strong></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/14.PNG" width="50%" /></p>
+</div>
+<ol start="4" type="i">
+<li>Alignment set to Center and Top</li>
+<li>Hide repeated values in the Chart by setting the Mark Label <strong>“Never Show”</strong>.</li>
+<li>Remove the Right Y Axis</li>
 </ol>
 <h3 id="title-and-formatting">3.2.7 Title and formatting</h3>
 <ol type="i">
@@ -2219,18 +2282,29 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>Insert caption for source and X Axis <em>Source: Table 5: RESIDENT LABOUR FORCE PARTICIPATION RATE BY AGE AND SEX, 2009 - 2019 (JUNE)</em></li>
 <li>In format, add grid lines and remove row divider.</li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/15.PNG" width="50%" /></p>
+</div>
 <h2 id="create-sparklines">3.3 Create Sparklines</h2>
 <h3 id="create-line-chart-as-base">3.3.1 Create line chart as base</h3>
 <ol type="i">
-<li><p>Drag <strong>Year</strong> to column, and <strong>Age group</strong> and <strong>LFPR %</strong> to Rows</p></li>
-<li><p>Edit axis to change the Range to <strong>Independent axis ranges</strong> for each row. So the sparklines will be more obvious.</p></li>
+<li>Drag <strong>Year</strong> to column, and <strong>Age group</strong> and <strong>LFPR %</strong> to Rows</li>
+<li>Edit axis to change the Range to <strong>Independent axis ranges</strong> for each row. So the sparklines will be more obvious.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/16.PNG" width="35%" /></p>
+</div>
+<ol start="3" type="i">
 <li><p>Sort the Age group by Descending order and hide the Y axis.</p></li>
 <li><p>From Color <strong>set markers</strong> to All to show the dots.</p></li>
 <li><p>Remove the row grid lines and column dividers using format.</p></li>
-<li><p>Change title to <em>Year-on-Year LFPR</em> to and align center.</p></li>
+<li><p>Change title to <strong>Year-on-Year LFPR</strong> to and align center.</p></li>
 <li><p>Remove x-axis header</p></li>
 <li><p>Drag <strong>Year</strong> into label and set mark to label as <strong>min/max</strong> Remove all point except for bottom age group as shown.</p></li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/17.PNG" width="50%" /></p>
+</div>
 <h2 id="combining-into-dashboard">3.4 Combining into Dashboard</h2>
 <h3 id="create-new-dashboard">3.4.1 Create new dashboard</h3>
 <ol type="i">
@@ -2239,6 +2313,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>Drag <strong>image object</strong> import <strong>arrow image[custom image]</strong> to bottom right of arrow graph as legend</li>
 <li>And drag text objects beside the arrow and key as 2009 and 2019</li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/18.PNG" width="50%" /></p>
+</div>
 <h3 id="annotation-title-size-and-white-space-alignment">3.4.2 Annotation, Title size and white space alignment</h3>
 <ol type="i">
 <li>Add text objects annotation for both charts to highlight the info.</li>
@@ -2250,10 +2327,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><strong>Chart titles</strong> change to <strong>size 12</strong></li>
 <li>Add <strong>blank objects</strong> to align the charts.</li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/19.PNG" width="75%" /></p>
+</div>
 <h1 id="major-observations">4.0 Major observations</h1>
 <ol type="1">
-<li><p>Older age group have a higher increase in LFPR compared to the younger age group.</p></li>
-<li><p>YOY for age bands 30 and above shows gradual changes. However, for age band 15-19, 20-24 and 25-29, we can observe more fluctuations in their LFPR.</p></li>
+<li><p>Labour force participation rate has increased for all age groups except for aged 20-24 which fall by 2.5% comparing 2019 against 2009.</p></li>
+<li><p>Older age groups (above aged 55) have a higher increase in LFPR compared to the other age groups.</p></li>
+<li><p>Year-on-Year for age groups above 30 shows gradual changes. However, for age groups 15-19, 20-24 and 25-29, are observed to have more fluctuations in their LFPR from 2009 to 2019.</p></li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
