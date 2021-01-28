@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js","picture/0.PNG","picture/1.png","picture/10.PNG","picture/11.PNG","picture/12.PNG","picture/13.PNG","picture/14.PNG","picture/15.PNG","picture/16.PNG","picture/17.PNG","picture/18.PNG","picture/19.PNG","picture/2.PNG","picture/3.PNG","picture/4.PNG","picture/5.PNG","picture/6.PNG","picture/7.PNG","picture/8.PNG","picture/9.PNG","picture/arrow legend.png"]}
+  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js","picture/0.PNG","picture/1.png","picture/10.PNG","picture/11.PNG","picture/12.PNG","picture/13.PNG","picture/14.PNG","picture/15.PNG","picture/16.PNG","picture/17.PNG","picture/18.PNG","picture/19.PNG","picture/2.PNG","picture/20.PNG","picture/21.PNG","picture/22.jpg","picture/3.PNG","picture/4.PNG","picture/5.PNG","picture/6.PNG","picture/7.PNG","picture/8.PNG","picture/9.PNG","picture/arrow legend.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2073,7 +2073,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h1 id="original-data-visualisation">Original Data Visualisation</h1>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="picture/0.PNG" width="50%" /></p>
+<p><img src="picture/0.PNG" width="70%" /></p>
 </div>
 <h1 id="critiques-and-suggestions">1.0 Critiques and Suggestions</h1>
 <h2 id="clarity">1.1 Clarity</h2>
@@ -2094,12 +2094,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <tr class="odd">
 <td>1</td>
 <td>The summary write-up described the increase in the proportion of labour force using age group of 55 &amp; over and 25 to 54. However, the age group for the graph is using an interval of 5. Thus, making it hard to link the lead in with the graph.</td>
-<td>To use a consistent interval of age groups in both graph and text. The lead-in write up will summarize the data visualization as Dashboard title</td>
+<td>To use a consistent interval of age groups in both graph and text. The dashboard title will serve as an lead-in to summarize the overview insights of the data visualisation.</td>
 </tr>
 <tr class="even">
 <td>2</td>
 <td>The title “Resident labour force by age - Per Cent” did not effectively communicate clearly if the measure used is by percentage proportion breakdown, participation rate, or difference in percentage change over the years.</td>
-<td>To reflect the measuring unit LFPR and the comparison between 2009 and 2019. Chart title need to explicitly state the measure and breakdown. “Percentage change in LFPR by Age Group - 2009 versus 2019”</td>
+<td>To reflect the measuring unit LFPR and the comparison between 2009 and 2019. Chart title need to explicitly state the measure and breakdown. “Percentage change in LFPR by Age Group” The comparison period “2009 versus 2019” may be redundant as will be mentioned in the dashboard title.</td>
 </tr>
 <tr class="odd">
 <td>3</td>
@@ -2139,32 +2139,39 @@ document.addEventListener('DOMContentLoaded', function() {
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
+<td>7</td>
 <td>The graph shows the redundant year 2009 and 2019 three times. These unnecessary non-data-inks add distraction to the graph.</td>
 <td>Reduce the number of year labels appropriately.</td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td>No contrasting colors for comparison. The color gray and blue are similar and dull and could be hard for viewers with color blindness.</td>
-<td>Use contrasting color-blind friendly colors such as red and blue colors to highlight differences appropriately.</td>
+<td>8</td>
+<td>No contrasting colours for comparison. The colour gray and blue are similar and dull and could be hard for viewers with colour blindness.</td>
+<td>Use contrasting colour-blind friendly colours such as red and blue colours to highlight differences appropriately.</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td>Non-data-ink such as the dark color table and bolding of the X-axis divert focus away from the line chart.</td>
-<td>Remove dark color table and un-bold axis label.</td>
+<td>9</td>
+<td>Non-data-ink such as the dark colour table and bolding of the X-axis divert focus away from the line chart.</td>
+<td>Remove dark colour table and un-bold axis label.</td>
 </tr>
 <tr class="even">
-<td>4</td>
+<td>10</td>
 <td>Too much different information in a single chart diverts the key points.</td>
 <td>Remove unnecessary chart objects</td>
 </tr>
 </tbody>
 </table>
 <h1 id="sketch-of-proposed-design">2.0 Sketch of Proposed Design</h1>
-<p>Using arrow chart, each arrow represent each age group clearly the change in terms of LFPR percentage and the start and end point of the two years. the relative change</p>
-<p>dashboard title and annotation allows reader to quickly scan and derive insights.</p>
-<p>concise bar chart may have too many bar becoming harder to read when there are many points.</p>
-<p>sparklines</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/22.jpg" width="70%" /></p>
+</div>
+<ol type="i">
+<li><p>Use of simple phrases in title and text to provide relevant and concise information while allowing visualisation to be the main focus and speaks for itself. These wordings allow readers to quickly scan and derive insights.</p></li>
+<li><p>Reduce non-data-ink by using acronym LFPR and sign % and avoid having too much text to distract or clutter the visual. The Colour of the axis and gridlines will be lightened to further reduce the non-data-ink.</p></li>
+<li><p>Use intervals of five for Age groups instead of the irregular interval to improve the clarity and avoid skewing the visual to larger groups.</p></li>
+<li><p>Using Arrow chart allows providing clear percentage growth and the actual LPFR clearly in a creative way. Each arrow represents an age group for their LFPR and changes in 2009 and 2019. This is much easier to see the relative change compared to using bar charts where it may be hard to see when there are too many bars taking up much of the visual space. Or line charts where is used in the original visual may unintentionally emphasize the difference of the age groups instead of the two years.</p></li>
+<li><p>The sparklines allow quick trending to see what is between the two years without providing too much information diverting the key focus as snapshot comparison can be misleading.</p></li>
+<li><p>Choice of chart colours will be blue and red which is colour-blind friendly yet simple yet and intuitive to highlight positive and negative</p></li>
+</ol>
 <h1 id="data-visualization-step-by-step-guide">3.0 Data Visualization Step-by-step guide</h1>
 <h2 id="data-preparation">3.1 Data preparation</h2>
 <h3 id="pre-import-data-prep">3.1.1 Pre-import data prep</h3>
@@ -2330,11 +2337,20 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="picture/19.PNG" width="75%" /></p>
 </div>
+<p>Data Visualisation makeover completed</p>
 <h1 id="major-observations">4.0 Major observations</h1>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/20.PNG" width="70%" /></p>
+</div>
 <ol type="1">
 <li><p>Labour force participation rate has increased for all age groups except for aged 20-24 which fall by 2.5% comparing 2019 against 2009.</p></li>
 <li><p>Older age groups (above aged 55) have a higher increase in LFPR compared to the other age groups.</p></li>
-<li><p>Year-on-Year for age groups above 30 shows gradual changes. However, for age groups 15-19, 20-24 and 25-29, are observed to have more fluctuations in their LFPR from 2009 to 2019.</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="picture/21.PNG" width="35%" /></p>
+</div>
+<ol start="3" type="1">
+<li>Year-on-Year for age groups above 30 show gradual changes. However, age groups for 15-19, 20-24 and 25-29, are observed to have more fluctuations in their LFPR from 2009 to 2019.</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
