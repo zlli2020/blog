@@ -285,5 +285,10 @@ knitr::include_graphics("picture/21.png")
 
 3)	Year-on-Year for age groups above 30 show gradual changes. However, age groups for 15-19, 20-24 and 25-29, are observed to have more fluctuations in their LFPR from 2009 to 2019. 
 
+<br/>
+ <br/>
 
-
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("picture/final.png")
+```
+(https://public.tableau.com/profile/zlli#!/vizhome/LabourForceParticipationRate2009vs2019/Dashboard1)
