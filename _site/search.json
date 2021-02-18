@@ -6,21 +6,21 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-27T00:54:50+08:00"
+      "last_modified": "2021-02-18T16:32:44+08:00"
     },
     {
       "path": "dataviz.html",
       "title": "DataViz Makeover",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-27T00:56:45+08:00"
+      "last_modified": "2021-02-18T16:32:45+08:00"
     },
     {
       "path": "index.html",
       "title": "IDEA",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-27T00:56:12+08:00"
+      "last_modified": "2021-02-18T16:32:46+08:00"
     }
   ],
   "collections": ["posts/posts.json"]
