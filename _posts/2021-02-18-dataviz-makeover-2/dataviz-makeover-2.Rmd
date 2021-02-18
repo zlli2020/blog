@@ -1,7 +1,7 @@
 ---
 title: "Dataviz Makeover 2"
 description: |
-  A short description of the post.
+  Understand the public willingness on Covid-19 Vaccination
 author:
   - name: Li Zhenglong
     url: {}

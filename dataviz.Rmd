@@ -4,4 +4,5 @@ site: distill::distill_website
 listing: 
   posts:
      - 2021-01-27-dataviz-makeover-1
+     - 2021-02-18-dataviz-makeover-2
 ---
