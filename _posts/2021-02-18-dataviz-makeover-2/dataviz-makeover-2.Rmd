@@ -52,12 +52,10 @@ knitr::include_graphics("picture/0.png")
 
 
 
-```{r, echo=FALSE, out.width="70%"}
-#knitr::include_graphics("picture/22.jpg")
-```
+![](picture/43.png)
 
 
-* The title "Understand the public willingness on Covid-19 vaccination" states clearly the objective of the Data visualization. Ability to select the questions allows user to have see each questions and their responses. This is further value add by having the flexibility to select by overall or country, and breakdown by demographic with ad-hoc parameters.
+* The title to state clearly the objective of the Data visualization (e.g "Understand the public willingness on Covid-19 vaccination"). Ability to select the questions allows user to have see each questions and their responses. This is further value add by having the flexibility to select by overall or country, and breakdown by demographic with ad-hoc parameters.
 
 * For the Error bar Dot plot, we can select by the different response types and combination of Confidence intervals. The Chart title will be dynamically change to reflect the selections supplement with tooltip for details.
 * Both charts are interactive linked to enable cross highlight such as by country or demographic. 
