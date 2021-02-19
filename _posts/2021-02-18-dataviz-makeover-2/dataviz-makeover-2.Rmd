@@ -170,9 +170,58 @@ Completed Likert Scale Chart
 | 21  | Dashboard | Create action for highlight interaction | •Select Dashboard -> Action -> add Action -> to create new highlight for highlight interaction between the two charts <br> ![](picture/31.png){width=50%}                                                                                                                         |
 Final Dashboard
 ![](picture/32.png)
+[Link to Dashboard](https://public.tableau.com/profile/zlli#!/vizhome/DataVizMakeover2-UnderstandthewillingnessofthepubliconCovid-19vaccination/Dashboard1)
 
 # 4.0 Major observations 
 
-1)
-2)
-3)
+**1)** Japanese are the most worried about getting COVID-19 with the highest Agree and Strongly Agree (67%), followed by Spanish and South Korean at 64% and 58% respectively.
+On other hand, Australians and Netherlanders (Dutch) are the least worried about getting COVID-19 at 36%, and 32% agreeing with the statement.
+
+
+![](picture/33.png)
+
+
+**2)** French shows the highest negative and lowest positive in believing their government will provide them with an effective vaccine.
+while Danish(Denmark) and British(UK) have the highest trust in their government at 68% and 64% positive (Strongly Agree and Agree). Although Israel has a higher positive than Singapore(61%), it has more uncertainty with a larger 99% Confidence interval from 58% to 69% due to a smaller sample size of 503 responses.  Singapore has the least negative(Strongly Disagree and Disagree) proportion at 10%.
+
+![](picture/34.png)
+
+Japan is the 2nd lowest positive(45%) but mainly due to the highest neutrality of 40% proportion to government health authorities providing effective COVID-19 vaccine. 
+![](picture/35.png)
+**3)** Across all countries, Females are generally more worried about getting COVID-19 except for Singapore and Australia where Males are marginally equal or more worried about getting the virus.
+
+![](picture/36.png)
+
+**4)** On the country level, Japan, Singapore, France, and Spain are the top countries worried about the vaccination side effects.
+
+![](picture/37.png)
+
+**5)** We can observe that older people are more worried about getting COVID-19. 
+![](picture/38.png)
+
+While middle age followed by young adults are more worried about vaccine side effects. Age group 90-99 shows large CI due to lower sample size of 26 responses. 
+
+![](picture/39.png)
+
+Similarly, retirees have the highest positive response when asked to get COVID-19 vaccine questions by this week, year and if they never get it, they will regret it.
+
+![](picture/40.png)
+
+Retirees are also one of the least worried about the potential side effect. 
+
+![](picture/41.png)
+
+This may be due to the elderly which are mainly retirees are more vulnerable and have complications due to existing health conditions compared to the younger generation. [(WHO , APR 2020)](https://www.who.int/news-room/feature-stories/detail/who-delivers-advice-and-support-for-older-people-during-covid-19#:~:text=The%20COVID%2D19%20pandemic,potential%20underlying%20health%20conditions) and thus more keen on getting the vaccine.
+
+**6)** Smaller Household sizes (1-2) were observed to be more positive in getting vaccine consistency across the getting COVID-19 vaccine questions. 
+
+![](picture/41.png)
+
+
+
+
+[Link to Dashboard](https://public.tableau.com/profile/zlli#!/vizhome/DataVizMakeover2-UnderstandthewillingnessofthepubliconCovid-19vaccination/Dashboard1)
+
+![](picture/32.png)
+
+
