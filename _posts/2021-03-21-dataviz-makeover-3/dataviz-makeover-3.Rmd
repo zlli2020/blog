@@ -66,6 +66,12 @@ The original Data Visualisation is definitely confusing and have some flaws to i
 <br> ![](picture/50.png){width=100%} <br> 
 
 
+1)	Map can be toggled by different views by proportional symbol map(size of circle by event type) ,
+ proportional piechart map (overview of breakdown using piechart) and density heatmap to see the hotspots of overall or filter by country/event type.
+2)	Tooltips have details and pie chart breakdown by country and state for comparison within and between the countries.
+3)	Bar chart can show better number of event and fatalities supplement the map charts. On-the-fly sorting using set action improves the stacked bar chart to compare between the countries and state by event type easily.
+4)	Able to toggle bar and line chart allows different perspective sich as trend using line chart or by total amount using stacked bar chart.
+5)	Using of highlight/filter actiosn allow interactively and intuitive selection/highlighting of the charts within the dashboard.
 
 
 # 3.0 Data Visualization Step-by-step guide
@@ -134,6 +140,7 @@ The original Data Visualisation is definitely confusing and have some flaws to i
 ## 3.6 Final Dashboard
 
 <br>![](picture/51.png)
+https://public.tableau.com/profile/zlli#!/vizhome/DatavizMakeover3-South-eastAsiaArmedConflictAnalysis/Dashboard1
 
 # 4.0 Major observations 
 
