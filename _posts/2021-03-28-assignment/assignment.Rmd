@@ -1,7 +1,7 @@
 ---
 title: "Assignment"
 description: |
-  A short description of the post.
+  Pareto and Control Chart analysis for long PM Waiting time
 author:
   - name: Li Zhenglong
     url: {}
@@ -34,12 +34,17 @@ knitr::opts_chunk$set(
 
 ## 1.1 Introduction
 
-Maritime trade has been the backbone of international trade as it accounts approximately 92% of world trade ([Xu,2020](https://royalsocietypublishing.org/doi/10.1098/rsos.200386)).  
-As the world's busiest transshipment port, PSA Singapore handles about a fifth of the world’s transhipped containers.([Saini,2018](https://seanews.co.uk/features/the-busiest-ports-in-the-world-and-how-they-handle-operations-part-ii-singapore/)). 
+Maritime trade has been the backbone of international trade since the beginning of time. Today, maritime trade accounts for approximately 92% of world trade.([Xu,et al,2020](https://royalsocietypublishing.org/doi/10.1098/rsos.200386)).Singapore’s strategic location and political stability has allowed Singapore to command a strategic position as a maritime hub in the global arena. 
 
-Upon a vessel’s arrival at a berth in the container terminal, containers are discharged from and loaded onto it. A typical discharging operation starts with a quay crane picking up a container from the vessel and placing it onto a prime mover (PM), which will then transport the container to a storage yard. At the yard, a yard crane picks up the container from the PM and shifts it to a designated spot. Loading operations involve the transporting of containers in the opposite direction, from the yard to the vessel ([Ku, 2018](https://www.scs.org.sg/articles/how-arti-cial-intelligence-can-make-our-port-smarter)).
+PSA Singapore
 
-PM Productivity is defined as the sum of the total number of containers handled divided by the total hours. The following are the key terms which PSA uses to define PM productivity.  
+As the world’s busiest trans-shipment port, PSA Singapore handles about a fifth of the world’s transhipped containers ([Saini,2018](https://seanews.co.uk/features/the-busiest-ports-in-the-world-and-how-they-handle-operations-part-ii-singapore/)). As of 2019, the port attracts 130,000 vessel calls on average a year, while the maritime industry accounts for 7% of Singapore’s GDP and 170,000 jobs, and this figure is set to grow.([Turner,2019](https://www.ship-technology.com/features/why-is-singapore-port-so-successful/)).
+
+Port Operations 
+
+Upon a vessel’s arrival at a berth in the container terminal, containers are discharged from and loaded onto it. A typical discharging operation starts with a quay crane picking up a container from the vessel and placing it onto a prime mover (PM), which then transports the container to a storage yard. At the yard, a yard crane picks up the container from the PM and shifts it to a designated spot. Loading operations involve the transporting of containers in the opposite direction, from the yard to the vessel([Ku, 2018](https://www.scs.org.sg/articles/how-arti-cial-intelligence-can-make-our-port-smarter)).
+
+PM Productivity is defined as the sum of the total number of containers handled divided by the total hours. The following are the key terms used by PSA to define PM productivity.  
 
 $$ Productivity = Total Containers Handled / Total Time $$
 $$Total Time = Sum (Est.Travel Time + Est.Wait Time + Unproductive Time + Non-Work Time)$$
@@ -54,23 +59,34 @@ $$Total Time = Sum (Est.Travel Time + Est.Wait Time + Unproductive Time + Non-Wo
 
 *Non-Work Time* is the time taken for a change of driver, meal break, and PM breakdown (if any). 
 
-PSA Singapore handled 36.9 million twenty-foot equivalent units (TEUs) in 2020.([Leow, 2021](https://www.businesstimes.com.sg/transport/port-of-singapore-container-throughput-dips-09-in-2020)).There are more than ninety thousand PM yard operations daily. With the amount of transactions and connectivity, the improve in productivity can bring large savings, and opportunity to increase output and growth to the organization.
+In 2021, PSA Singapore handled a total 36.9 million twenty-foot equivalent units([Leow, 2021](https://www.businesstimes.com.sg/transport/port-of-singapore-container-throughput-dips-09-in-2020)).And on a daily average (with the data sample), There are more than ninety thousand PM yard operations daily. With the amount of transactions and connectivity, even a slight improvement in productivity can bring about large savings to the organisation, and the opportunity to increase output, thus providing growth to the organization.
 
 
 ## 1.2 Objective
 
-The objectives for the assignment are to explore various R packages and develop Data viz prototypes to be determined in the final Shiny app.
+The objective of this assignment is to explore various R packages and develop Data Viz prototypes to be determined in the final Shiny app.
 
 
 ## 1.2 Literature review
 
+Currently, PM operation's performances are tracked using Operation Indicators such as PM productivity (container/total duration) and PM waiting time aggregated by duration, from daily shifts to monthly reports and breakdown by individual terminals and operation type. 
+
+Although changes have been made to improve resource/yard/berth planning which impacts the PM productivity, the performance is still largely analyzed through static excel reports and Qlikview Visualizations which improve interactive selection across variables. This makes it difficult for the internal stakeholders to drill down and pinpoint the issues as it is tricky to monitor and compare the measurement statistically.  
+
+<br> ![](pic1.png){width=70%} <br> 
+
+Other previous studies on PM operation efficiency typically focus on crane productivity by work schedule([Li,Wu,Petering,Goh,Souza, 2006](https://www.pomsmeetings.org/confpapers/005/005-0094.doc)), and resource planning & deployment to find the optimal number of PMs and trucks (haulier) to reduce average PM waiting time.([Eindhoven University of Technology, 2010](https://www.win.tue.nl/oowi/final%20project/archive/KoenStaats.pdf)). 
+
+The first study conducted in 2006 only discusses crane productivity and not PM productivity. Additionally, the study is way overdue. The second study by Eindhoven University of Technology in 2010 was conducted in a sandbox environment to find the optimal number of PM per equipment in a single process flow, thus totally ignoring the complexities of live transactions and connectivity of PM operation. 
 
 
 ## 1.3 Components of Data Visualisation
 
-Pareto and control charts are used together to help tunnel down into the operation process and to find the root cause of productivity problems. The Pareto chart helps to identify and focus effort on the top portion of the causes in order to resolve the majority of the problems. Using a variety type of control charts with control limits of 3 standard deviations, we can study the stability of the current process, analyze and make improvements, and monitor the result when the new process is implemented. Besides, the data obtained from the process can also be applied to predict future performances of the process. 
+Pareto and control charts are used together to help tunnel down into the operation process and to find the root cause of productivity problems. The Pareto chart helps to identify and focus effort on the top portion of the causes to resolve most of the problems. 
 
-The data are examined using a control chart to determine if the problem is special causes of variation or just common causes of variation. ([source](https://cran.r-project.org/web/packages/qicharts2/vignettes/qicharts2.html#understanding-variation )). 
+By using a variety type of control charts with control limits of 3 standard deviations, we studied the stability of the current process, analyze and made improvements, and monitored the results of the newly implemented process. Furthermore, the data obtained from the process can also be applied to predict future performances of the process. 
+
+The data are examined using a control chart to determine if the problem is due to special causes of variation or just common causes of variation.  ([source](https://cran.r-project.org/web/packages/qicharts2/vignettes/qicharts2.html#understanding-variation )). 
 
 **Common cause variation**
 
@@ -97,15 +113,13 @@ The data are examined using a control chart to determine if the problem is speci
 
 ## 1.4 Interactivity
 
-The following interactive features are proposed to be incorporated in the data visualizations to enhance usability and user experience: 
+The following interactive features are proposed to be incorporated in the data visualizations to enhance usability and user experience:
 
-Data filter: To allow users to filter and zoom into the data by Date, Terminal, Equipment, and container types to examine the patterns across time and space. This also allows users to flow from a high-level overview and narrow down to data on a higher granularity.
+Data filter: To allow users to filter and zoom into the data by “Date”, “Terminal”, “Equipment”, and “Container Types” to examine the patterns across time and space. This also allows users to flow from a high-level overview and narrow down to data on a higher granularity.
 
-Use of tooltips: To enhance the user experience when the user hovers over the chart objects to provide on-demand details without having too much information cluttered on the chart.
+Use of tooltips: When users hover over the chart objects, the tooltips provide on-demand details without having too much information cluttered on the chart.
 
-When we explore and try to make sense of data, the Data visualization helps us to follow the
-the flow of "overview first, zoom and filter into details", bouncing back and forth,
-here and there, with ease and without interrupting our train of thought. 
+When we interpret the data, the Data visualization helps us to follow the flow of “overview first, zoom and filter into details”, bouncing back and forth, here and there, with ease and without interrupting our train of thought.
 
 
 # 2.0 Step-by-step Data Visualisation Preparation
@@ -138,7 +152,7 @@ library(p, character.only = T)
 ## 2.2 Data Preparation
 ### 2.2.1 Data Source
 
-The data source used in this exercise is from PSA Singapore’s PM anonymized dataset that contains PM operation event records. There are approximately 5 million records with 69 variables. The data set is reduced to 37 variables for the preliminary analysis. 
+The data source used in this exercise is from PSA Singapore’s PM anonymized dataset that contains PM operation event records. There are approximately 5 million records with 69 variables. The data set is reduced to 37 variables for the preliminary analysis as those information are vessel and previous event information which does not impact PM operations.
 
 ### 2.2.2 Loading Dataset into R
 
@@ -150,7 +164,7 @@ ZL_Dataset <- read_csv("data/pm 201903.txt")
 
 ### 2.2.3 Exclude unneccessary columns
 
-The studies focus on PM productivity in the yard, we filtered to take in only yard event_c which are Equipment Mount(EQMT) and Equipment Offload(EQOF) operations. Unused columns are removed using subset() function to further reduced the data set. 
+This study focuses on PM productivity in the yard, we have filtered to take in only yard event_c which are Equipment Mount(EQMT) and Equipment Offload(EQOF) operations. Unused columns are removed using subset() function to further reduce the data set.
 
 Using glimpse() function, we can see the data type and sample records of the data set. 
 
@@ -897,19 +911,24 @@ fig_U<- fig_U %>% add_annotations(
 fig_U
 ```
 
-# 3.0 Sketch of Proposed Visualisation
+# 3.0 Sketch of Proposed Visualisation - submodule
+
+The Pareto and Control chart modules will share the filters on the left navigation.
+
+The Tab will allow toggling of different Pareto and Control Charts.
+
+<br> ![](pic2.png){width=70%} <br> 
 
 
 
 
+# 4.0 Limitation and Future Improvement
 
 
-# 4.0 limitation and future improvement
+It is important to note that whilst the control chart can identify non-random variation, it cannot identify its root cause. The analysis can only show us that PM waiting time has been reduced or stabilized after an implemented change. However, it cannot be established as the cause of the change.
 
+While more data points may increase the sensitivity of the chart, more tests can increase the risk of more false positives, reducing the specificity of the chart. Thus, determining the range and scope of the analysis is critical. 
 
-It is important to note that the control chart can identify non-random variation, it cannot identify its root cause. The analysis can only tell that PM waiting time has been reduced or stabilized after an implemented change. However, it cannot be established as the cause of the change. 
+The PM waiting time and traveling time are estimated base on distance traveled minus non-work time and unproductive time. The accuracy can be improved if the data set captures the actual traveling time and waiting time using GPS or IoT sensor data. In near future, the Tuas terminals Automated Guided Vehicles (AGV) will replace a majority of the current traditional human-driven Prime Movers to be the new norm. Hence, using a similar approach to what we are currently doing, making use of the Pareto and Control charts to analyze the stability of current and future processes.
 
-While more data points may increase the sensitivity of the chart, more observation will increase the risk of more false positives, reducing the specificity of the chart. Thus, determining the range and scope of the analysis is critical.
-
-The PM waiting time and traveling time are estimated base on distance traveled minus non-work time and unproductive time. The accuracy can be improved if the data set captures the actual traveling time and waiting time using GPS or IoT sensor data. In which, future Tuas terminals Automated Guided Vehicles (AGV) would replace the majority of the current traditional human-driven Prime Movers to be the new norm. Hence using the similar approach, we can use Pareto and Control charts to analyze the stability of current and future processes.
 
