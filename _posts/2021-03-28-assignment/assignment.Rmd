@@ -1,11 +1,11 @@
 ---
 title: "Assignment"
 description: |
-  Pareto and Control Chart analysis for long PM Waiting time
+  Pareto and Control Chart analysis for long PM waiting time
 author:
   - name: Li Zhenglong
     url: {}
-date: 03-28-2021
+date: 10-04-2021
 output:
   distill::distill_article:
     code_folding: true
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 
 ## 1.1 Introduction
 
-Maritime trade has been the backbone of international trade since the beginning of time. Today, maritime trade accounts for approximately 92% of world trade.([Xu,et al,2020](https://royalsocietypublishing.org/doi/10.1098/rsos.200386)).Singapore’s strategic location and political stability has allowed Singapore to command a strategic position as a maritime hub in the global arena. 
+Maritime trade has been the backbone of international trade since the beginning of time. Today, maritime trade accounts for approximately 92% of world trade ([Xu,et al,2020](https://royalsocietypublishing.org/doi/10.1098/rsos.200386)). Singapore’s strategic location and political stability has allowed Singapore to command a strategic position as a maritime hub in the global arena. 
 
 PSA Singapore
 
@@ -49,17 +49,19 @@ PM Productivity is defined as the sum of the total number of containers handled 
 $$ Productivity = Total Containers Handled / Total Time $$
 $$Total Time = Sum (Est.Travel Time + Est.Wait Time + Unproductive Time + Non-Work Time)$$
 
-*Total Time* is defined as the time difference between the two operation activities.  
+**Total Time** is defined as the time difference between the two operation activities.  
 
-*Estimated Travel Time* is the duration between two locations based on distance matrix with fixed speed limit/hr. 
+**Estimated Travel Time** is the duration between two locations based on distance matrix with fixed speed limit/hr. 
 
-*Estimated Wait Time* = Total Time – Non-Work Time - Unproductive Time – Est. Travel Time 
+**Estimated Wait Time** = Total Time – Non-Work Time - Unproductive Time – Est. Travel Time 
 
-*Unproductive Time* is the time logoff by the same driver. 
+**Unproductive Time** is the time logoff by the same driver. 
 
-*Non-Work Time* is the time taken for a change of driver, meal break, and PM breakdown (if any). 
+**Non-Work Time** is the time taken for a change of driver, meal break, and PM breakdown (if any). 
 
-In 2021, PSA Singapore handled a total 36.9 million twenty-foot equivalent units([Leow, 2021](https://www.businesstimes.com.sg/transport/port-of-singapore-container-throughput-dips-09-in-2020)).And on a daily average (with the data sample), There are more than ninety thousand PM yard operations daily. With the amount of transactions and connectivity, even a slight improvement in productivity can bring about large savings to the organisation, and the opportunity to increase output, thus providing growth to the organization.
+
+
+In 2021, PSA Singapore handled a total 36.9 million twenty-foot equivalent units([Leow, 2021](https://www.businesstimes.com.sg/transport/port-of-singapore-container-throughput-dips-09-in-2020)).  There are more than ninety thousand PM yard operations daily on a average using the sample Data. With the amount of transactions and connectivity, even a slight improvement in productivity can bring about large savings to the organisation, and the opportunity to increase output, thus providing growth to the organization.
 
 
 ## 1.2 Objective
@@ -69,22 +71,22 @@ The objective of this assignment is to explore various R packages and develop Da
 
 ## 1.2 Literature review
 
-Currently, PM operation's performances are tracked using Operation Indicators such as PM productivity (container/total duration) and PM waiting time aggregated by duration, from daily shifts to monthly reports and breakdown by individual terminals and operation type. 
+Currently, PM operation's performances are tracked using Operation Indicators such as PM productivity (container/total duration) and PM waiting time aggregated by duration, from daily shifts to monthly reports and breakdown by individual terminals, equipment, container and operation type. 
 
-Although changes have been made to improve resource/yard/berth planning which impacts the PM productivity, the performance is still largely analyzed through static excel reports and Qlikview Visualizations which improve interactive selection across variables. This makes it difficult for the internal stakeholders to drill down and pinpoint the issues as it is tricky to monitor and compare the measurement statistically.  
+Although changes have been made to improve resource/yard/berth planning which impacts the PM productivity, the performance is still largely analyzed through static excel reports, and in recent years, using Qlikview Visualizations with improved aesthetic and interactive filters on summarized performance indicators charts. This makes it difficult for the operation managers to drill down and pinpoint the issues as it is tricky to monitor and compare the performance indicator statistically over time.    
 
-<br> ![](pic1.png){width=70%} <br> 
-
-Other previous studies on PM operation efficiency typically focus on crane productivity by work schedule([Li,Wu,Petering,Goh,Souza, 2006](https://www.pomsmeetings.org/confpapers/005/005-0094.doc)), and resource planning & deployment to find the optimal number of PMs and trucks (haulier) to reduce average PM waiting time.([Eindhoven University of Technology, 2010](https://www.win.tue.nl/oowi/final%20project/archive/KoenStaats.pdf)). 
+Other previous external studies on PM operation efficiency typically focus on crane productivity by work schedule([Li,Wu,Petering,Goh,Souza, 2006](https://www.pomsmeetings.org/confpapers/005/005-0094.doc)), and resource planning & deployment to find the optimal number of PMs and trucks (haulier) to reduce average PM waiting time.([Eindhoven University of Technology, 2010](https://www.win.tue.nl/oowi/final%20project/archive/KoenStaats.pdf)). 
 
 The first study conducted in 2006 only discusses crane productivity and not PM productivity. Additionally, the study is way overdue. The second study by Eindhoven University of Technology in 2010 was conducted in a sandbox environment to find the optimal number of PM per equipment in a single process flow, thus totally ignoring the complexities of live transactions and connectivity of PM operation. 
+
+Thus, this assignment aims to leverage on Data Viz interactive approach combine with analytic techniques to enhance user experience and the analysis on long PM waiting time.  
 
 
 ## 1.3 Components of Data Visualisation
 
-Pareto and control charts are used together to help tunnel down into the operation process and to find the root cause of productivity problems. The Pareto chart helps to identify and focus effort on the top portion of the causes to resolve most of the problems. 
+Pareto and control charts are used together to help tunnel down into the operation process and to find the root cause of productivity problems. The Pareto chart helps to identify and focus effort on the top portion of the causes to resolve the key contributors of the problem. 
 
-By using a variety type of control charts with control limits of 3 standard deviations, we studied the stability of the current process, analyze and made improvements, and monitored the results of the newly implemented process. Furthermore, the data obtained from the process can also be applied to predict future performances of the process. 
+By using a variety type of control charts with control limits of 3 standard deviations, we can study the stability of the current process, analyze and make improvements, and monitor the results of the newly implemented process. Furthermore, the data obtained from the process can also be applied to predict future performances of the process. 
 
 The data are examined using a control chart to determine if the problem is due to special causes of variation or just common causes of variation.  ([source](https://cran.r-project.org/web/packages/qicharts2/vignettes/qicharts2.html#understanding-variation )). 
 
@@ -152,7 +154,7 @@ library(p, character.only = T)
 ## 2.2 Data Preparation
 ### 2.2.1 Data Source
 
-The data source used in this exercise is from PSA Singapore’s PM anonymized dataset that contains PM operation event records. There are approximately 5 million records with 69 variables. The data set is reduced to 37 variables for the preliminary analysis as those information are vessel and previous event information which does not impact PM operations.
+The data source used in this exercise is from PSA Singapore’s PM anonymized dataset that contains PM operation event records. There are approximately 5 million records with 69 variables. The data set is reduced to 37 variables for the preliminary analysis as those information are vessel and previous event information which does not impact PM event operation.
 
 ### 2.2.2 Loading Dataset into R
 
@@ -389,7 +391,8 @@ df2 <- p2$data
 
 #### 2.4.1.1 load qic() into ggplot
 
-The result from qic() is loaded into ggplot with aes changes and reference lines applied to the chart. (The code are repeating for the other control charts)
+The result from qic() is loaded into ggplot with aes changes and reference lines applied to the chart. 
+*(Note: The code are reused for the other control charts)*
 
 ```{r}
 
@@ -418,7 +421,7 @@ ggp2 <- ggplot(df2, aes(x = ymd(x) , y = y , group = 1,text = paste("Date:", x ,
   geom_hline(aes(yintercept = aLCL),colour ="red",size = 0.5,linetype= "dashed",summary(p2)) +
   scale_y_continuous(breaks = round(seq(min(df2$y), max(df2$y), by = 0.1),1))+
   #rename tooltip attribute text. 
-    labs(title = "S Chart PM Wait Time, 2019" ,
+    labs(title = "S-Chart PM Wait Time, 2019" ,
        y = "WAIT_TIME (Mins)", x = "Date")
 
 ```
@@ -426,7 +429,10 @@ ggp2 <- ggplot(df2, aes(x = ymd(x) , y = y , group = 1,text = paste("Date:", x ,
 
 #### 2.4.1.2 Convert into plotly and add annotations
 
-Use of annotation to indicate Upper Control Limit(UCL), Lower Control Limit(LCL), and Central Line (CL). (The code are repeating for the other control charts)
+Use of annotation to indicate Upper Control Limit(UCL), Lower Control Limit(LCL), and Central Line (CL). 
+*(Note: The code are reused for the other control charts)*
+
+
 ```{r}
 fig1 <- ggplotly(ggp1, tooltip=c("text")) 
   
@@ -553,7 +559,7 @@ ggp4 <- ggplot(df4, aes(x = x , y = y , group = 1, text = paste("Date:", x ,"\n"
   geom_hline(aes(yintercept = aLCL),colour ="red",size = 0.3,linetype= "dashed",summary(p4)) +
   facet_grid(facet1~facet2)+
   #rename tooltip attribute text. 
-    labs(title = "S Chart PM Wait Time, 2019" ,
+    labs(title = "S-Chart PM Wait Time, 2019" ,
        y = "WAIT_TIME(Mins)", x = "Date")
 
 fig4 <- ggplotly(ggp4, tooltip=c("text"))
@@ -591,7 +597,7 @@ ggp_I <- ggplot(DF_I, aes(x = x , y = y, text1 = y , text2 = x)  ) +
   geom_hline(aes(yintercept = aUCL),colour ="red",size = 0.5,linetype= "dashed",summary(P_I)) +
    #scale_y_continuous(breaks = round(seq(min(DF_I$y), max(DF_I$y), by = 10),1))+
    #rename tooltip attribute text. 
-    labs(title = "PM Wait Time - I Chart" ,
+    labs(title = "PM Wait Time - Individual I-Chart" ,
        y = "WAIT_TIME(Mins)", x = "Operations no.")+
   #if (DF_I$lcl >0) {
    geom_hline(aes(yintercept = aLCL),colour ="red",size = 0.5,linetype= "dashed",summary(P_I)) 
@@ -652,7 +658,7 @@ ggp_MR <- ggplot(DF_MR, aes(x = x , y = y, text1 = y , text2 = x)  ) +
   geom_hline(aes(yintercept = aUCL),colour ="red",size = 0.5,linetype= "dashed",summary(P_MR))+
   # scale_y_continuous(breaks = round(seq(min(DF_MR$y), max(DF_MR$y), by = 10),1))+
    #rename tooltip attribute text. 
-    labs(title = "PM Wait Time - MR Chart" ,
+    labs(title = "PM Wait Time - Moving Range MR-Chart" ,
        y = "WAIT_TIME(Mins)", x = "Operations no.")+
   #if (DF_MR$lcl >=0) {
    geom_hline(aes(yintercept = aLCL),colour ="red",size = 0.5,linetype="dashed",summary(P_MR)) 
@@ -745,7 +751,7 @@ ggp_C <- ggplot(DF_C, aes(x = ymd(x) , y = y, text1 = y , text2 = x)  ) +
   geom_hline(aes(yintercept = aUCL),colour ="red",size = 0.5,linetype= "dashed",summary(P_C)) +
    #scale_y_continuous(breaks = round(seq(min(DF_C$y), max(DF_C$y), by = 10),1))+
    #rename tooltip attribute text. 
-    labs(title = "Long Wait Time - C Chart" ,
+    labs(title = "Long Wait Time - Count C-Chart" ,
        y = "Count", x = "Date")+
   #if (DF_I$lcl >0) {
    geom_hline(aes(yintercept = aLCL),colour ="red",size = 0.5,linetype= "dashed",summary(P_C)) 
@@ -807,7 +813,7 @@ ggp_P <- ggplot(DF_P, aes(x = ymd(x) , y = y, text1 = y , text2 = x)  ) +
  scale_y_continuous(labels = scales::percent)+
    #scale_y_continuous(breaks = round(seq(min(DF_P$y), max(DF_P$y), by = 10),1))+
    #rename tooltip attribute text. 
-    labs(title = "Long Wait Time - P Chart" ,
+    labs(title = "Long Wait Time - Proportion P-Chart" ,
        y = "Percent", x = "Date")+
   #if (DF_I$lcl >0) {
    geom_hline(aes(yintercept = aLCL),colour ="red",size = 0.5,linetype= "dashed",summary(P_P)) 
@@ -867,7 +873,7 @@ ggp_U <- ggplot(DF_U, aes(x = ymd(x) , y = y, text1 = y , text2 = x)  ) +
   geom_hline(aes(yintercept = aUCL),colour ="red",size = 0.5,linetype= "dashed",summary(P_U)) +
    #scale_y_continuous(breaks = round(seq(min(DF_U$y), max(DF_U$y), by = 10),1))+
    #rename tooltip attribute text. 
-    labs(title = "Long Wait Time - U Chart" ,
+    labs(title = "Long Wait Time - Rate U-Chart" ,
        y = "Count Per 1000 Moves", x = "Date")+
   #if (DF_I$lcl >0) {
    geom_hline(aes(yintercept = aLCL),colour ="red",size = 0.5,linetype= "dashed",summary(P_U)) 
@@ -927,7 +933,7 @@ The Tab will allow toggling of different Pareto and Control Charts.
 
 It is important to note that whilst the control chart can identify non-random variation, it cannot identify its root cause. The analysis can only show us that PM waiting time has been reduced or stabilized after an implemented change. However, it cannot be established as the cause of the change.
 
-While more data points may increase the sensitivity of the chart, more tests can increase the risk of more false positives, reducing the specificity of the chart. Thus, determining the range and scope of the analysis is critical. 
+While more data points may increase the sensitivity of the chart, more tests can increase the risk of more false positives, reducing the specificity of the chart. Thus, determining the range and scope limit of the analysis is critical. E.g (Focus from the last change to newly implemented process rather than using multiple years of data with un-tracked processes changes).
 
 The PM waiting time and traveling time are estimated base on distance traveled minus non-work time and unproductive time. The accuracy can be improved if the data set captures the actual traveling time and waiting time using GPS or IoT sensor data. In near future, the Tuas terminals Automated Guided Vehicles (AGV) will replace a majority of the current traditional human-driven Prime Movers to be the new norm. Hence, using a similar approach to what we are currently doing, making use of the Pareto and Control charts to analyze the stability of current and future processes.
 
