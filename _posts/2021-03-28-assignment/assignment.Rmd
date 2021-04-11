@@ -8,145 +8,189 @@ author:
 date: 03-28-2021
 output:
   distill::distill_article:
+    code_folding: true
     toc: true
-    toc_depth: 2
+    toc_depth: 3
+    toc_float: true
     self_contained: false
-  
 ---
 
 
-```{r setup, include=FALSE}
+
+```{r echo = FALSE}
 knitr::opts_chunk$set(
   echo = TRUE,
   warning = FALSE,
   message = FALSE,
   comment = "##",
-  R.options = list(width = 60)
+  R.options = list(width = 80)
  
 )
-
 
 ```
 
 
-## 1.0 Overview
+# 1.0 Overview
 
-### 1.1 Objective
+## 1.1 Introduction
 
-The study objective is to seek insight from Prime Mover (PM) Operations from port operations to identify common characteristics exhibited by PM with high and low waiting times, through understanding of PM events and operational data. This, in turn, enables us to pinpoint and identify correlated attributes and embark on further study to improve the overall productivity of PM operations and resource utilisation through active targeting of activities contributing to the PM waiting time.
+Maritime trade has been the backbone of international trade as it accounts approximately 92% of world trade ([Xu,2020](https://royalsocietypublishing.org/doi/10.1098/rsos.200386)).  
+As the world's busiest transshipment port, PSA Singapore handles about a fifth of the world’s transhipped containers.([Saini,2018](https://seanews.co.uk/features/the-busiest-ports-in-the-world-and-how-they-handle-operations-part-ii-singapore/)). 
 
-### 1.2 Literature review
+Upon a vessel’s arrival at a berth in the container terminal, containers are discharged from and loaded onto it. A typical discharging operation starts with a quay crane picking up a container from the vessel and placing it onto a prime mover (PM), which will then transport the container to a storage yard. At the yard, a yard crane picks up the container from the PM and shifts it to a designated spot. Loading operations involve the transporting of containers in the opposite direction, from the yard to the vessel ([Ku, 2018](https://www.scs.org.sg/articles/how-arti-cial-intelligence-can-make-our-port-smarter)).
 
-Current studies of PM productivity focus much on waiting time majoring of the operation time were spent. effort in improving resource planning yard storage and berth planning. 
+PM Productivity is defined as the sum of the total number of containers handled divided by the total hours. The following are the key terms which PSA uses to define PM productivity.  
+
+$$ Productivity = Total Containers Handled / Total Time $$
+$$Total Time = Sum (Est.Travel Time + Est.Wait Time + Unproductive Time + Non-Work Time)$$
+
+*Total Time* is defined as the time difference between the two operation activities.  
+
+*Estimated Travel Time* is the duration between two locations based on distance matrix with fixed speed limit/hr. 
+
+*Estimated Wait Time* = Total Time – Non-Work Time - Unproductive Time – Est. Travel Time 
+
+*Unproductive Time* is the time logoff by the same driver. 
+
+*Non-Work Time* is the time taken for a change of driver, meal break, and PM breakdown (if any). 
+
+PSA Singapore handled 36.9 million twenty-foot equivalent units (TEUs) in 2020.([Leow, 2021](https://www.businesstimes.com.sg/transport/port-of-singapore-container-throughput-dips-09-in-2020)).There are more than ninety thousand PM yard operations daily. With the amount of transactions and connectivity, the improve in productivity can bring large savings, and opportunity to increase output and growth to the organization.
+
+
+## 1.2 Objective
+
+The objectives for the assignment are to explore various R packages and develop Data viz prototypes to be determined in the final Shiny app.
+
+
+## 1.2 Literature review
+not done yet
+Current studies of PM productivity focus much on waiting time of the operation time were spent. effort in improving resource planning yard storage and berth planning. 
 
 Current operation performances are tracked using Operation Indicators such as PM productivity and PM waiting time aggregated by duration, from shifts to monthly reports and breakdown by individual terminal and PM.
 
 Previous studies on PM operation efficiency typically focus on crane productivity by work schedule , and resource planning & deployment to find the optimal number of PMs and trucks (haulier) to reduce average PM waiting time.
 
 
+## 1.3 Components of Data Visualisation
 
-### 1.3 Components of Data Visualisation
+Pareto and control charts are used together to help tunnel down into the operation process and to find the root cause of productivity problems. The Pareto chart helps to identify and focus effort on the top portion of the causes in order to resolve the majority of the problems. Using a variety type of control charts with control limits of 3 standard deviations, we can study the stability of the current process, analyze and make improvement, and monitor the result when the new process is implemented. Besides, the data obtained from the process can also be applied to predict future performances of the process. 
 
-Pareto diagrams and control charts are used together to help tunnel down into the process to find the root cause of problems
-The delivery data are examined using a control chart to determine if the problem is special causes of variation or just common causes of variation. The Pareto diagram is then used to determine the major reason for delivery problems.
+The data are examined using a control chart to determine if the problem is special causes of variation or just common causes of variation. ([source](https://cran.r-project.org/web/packages/qicharts2/vignettes/qicharts2.html#understanding-variation )). 
 
-The types of data visualizations used, and corresponding rationales are listed below:
-    1. Pareto Chart
-    
-    2. Control chart
+**Common cause variation**
 
-### 1.4 Sketch of Proposed Visualisation
-### 1.5 Interactivity
+* is also called natural/random variation or noise,
 
-The following interactive features are proposed to be incorporated in the data visualisations to enhance usability and hence user experience: 
-View manipulation: To allow users to manipulate the data by filtering conflict types and year, for a high-level or isolated view, to better examine distribution and patterns across time and space. This feature will be incorporated in the time-series analysis using point symbol maps. 
+* is present in all processes,
 
-Use of tooltips: Supplementing information about the point event on the point symbol maps when user hovers or clicks on the datapoint. This feature is also incorporated in the stacked area chart (dygraph) whereby frequency values are displayed on the graph upon series/point highlighting.
- zoom and filter
- :
-where users can zoom in on a shorter range of dates
-Once we spot interesting patterns in the overview, the next logical step is to focus on one in
-particular and examine it more closely. 
-This method of adjusting the range of time is not only simple to use, but it also
-provides the added benefit of keeping us constantly reminded of where the four-week period
-that we're currently focusing on fits into the larger 52-week whole
+* is caused by phenomena that are always present within the system,
 
-When we explore and try to make sense of data, the Dat visualization help us to follow the
-flow of "overview first, zoom and filter, then details-on-demand," bouncing back and forth,
+* makes the process predictable within limits.
+
+
+**Special cause variation**
+
+* is also called non-random variation or signal,
+
+* is present in some processes,
+
+* is caused by phenomena that are not normally present in the system,
+
+* makes the process unpredictable.
+
+
+
+
+## 1.4 Sketch of Proposed Visualisation
+
+
+## 1.5 Interactivity
+
+The following interactive features are proposed to be incorporated in the data visualizations to enhance usability and user experience: 
+
+Data filter: To allow users to filter and zoom into the data by Date, Terminal, Equipment and container types to examine the patterns across time and space. 
+
+Use of tooltips: To provide details when user hovers on the chart objects. 
+
+When we explore and try to make sense of data, the Data visualization help us to follow the
+flow of "overview first, zoom and filter into details", bouncing back and forth,
 here and there, with ease and without interrupting our train of thought. 
 
 
-## 2.0 Step-by-step Data Visualisation Preparation
-### 2.1 Installing and deploying R packages
+# 2.0 Step-by-step Data Visualisation Preparation
+## 2.1 Installing and deploying R packages
 
-tidyverse contains a set of essential packages for data manipulation and exploration.
-lubridate
-ggplot2
-plotly
-qicharts2
-ggQC
-qcc
-plyr dplyr dbplyr
+* **tidyverse** - contains a set of essential packages for data manipulation and exploration.
+* **dplyr** - use for data manipulation.
+* **lubridate** - make working with dates and times easier
+* **ggplot2** - plotting package to create the charts
+* **plotly** - create interactive plots from ggplot2 graphs
+* **qicharts2** - Quality improvement charts to create control chart used for this assignment.
+* **ggQC** - Quality Control Charts for ggplot2: alternate control chart package explored in this assignment.
+* **qcc**- statistical quality control charts package: alternate control chart package explored in this assignment.
+* **rmarkdown** - rmarkdown essential package for HTML 
+* **gridExtra** - grid function to display in grid
 
-```{r code_folding=TRUE}
 
-packages = c('tidyverse','ggplot2','plotly','lubridate','qicharts2','ggQC','qcc','dplyr' )
+
+```{r class.source = 'fold-show' }
+
+packages = c('tidyverse','dplyr','ggplot2','plotly','lubridate','qicharts2','ggQC','qcc','rmarkdown','gridExtra' )
 for(p in packages){
 if(!require(p, character.only = T)){
 install.packages(p)
 }
 library(p, character.only = T)
 }
-
 ```
 
-### 2.2 Data Preparation
-#### 2.2.1 Data Source
+## 2.2 Data Preparation
+### 2.2.1 Data Source
 
-The data source used in this exercise is from PSA Singapore’s PM anonymised dataset that contains PM operation event records. There are approximately 5 millions records with 69 variables. The dataset is reduced to the following 37 variables for the analysis:
+The data source used in this exercise is from PSA Singapore’s PM anonymised dataset that contains PM operation event records. There are approximately 5 millions records with 69 variables. The data set is reduced to 37 variables for the preliminary analysis. 
 
-#### 2.2.2 Loading Dataset into R
+### 2.2.2 Loading Dataset into R
 
-The Data set is imported using read_csv function which is useful for reading delimited files into data frame.
+The data set is imported using read_csv function which is useful for reading delimited files into data frame.
 
-```{r echo=TRUE, message = TRUE }
+```{r }
 ZL_Dataset <- read_csv("data/pm 201903.txt") 
 ``` 
 
-#### 2.2.3 Exclude unneccessary columns
+### 2.2.3 Exclude unneccessary columns
 
-As the studies focus on PM productivity in yard, we filtered to take in only event_c that are Equipment Mount(EQMT) and Equipment Offload(EQOF) operations. Unused columns are also removed using  subset() function. This reduced the dataset by half to approximately 470MB which is important when dealing with large dataset. 
+As the studies focus on PM productivity in yard, we filtered to take in only yard event_c which are Equipment Mount(EQMT) and Equipment Offload(EQOF) operations . Unused columns are removed using  subset() function to further reduced the dataset. Using glimpse() function, we can see the data type and sample records of the data set. 
 
-```{R echo=TRUE}
+```{R }
+
 ZL_DF <- subset(ZL_Dataset, select = -c(3,4,5,10,13,14,16,21,22,23,25,27,28,34,35,36,36,37)) %>%
-  filter(EVENT_C %in% c('EQMT','EQOF'))%>%
-  filter(SHIFT_D >= 20190328)
+  filter(EVENT_C %in% c('EQMT','EQOF')) 
 
+glimpse(ZL_DF,70)
 
 ```
 
-#### 2.2.4 Convert date columns to date format
+### 2.2.4 Convert date columns to date format
 
-It was observed that the variable SHIFT_D and EVENT_DT are in number and char format respectively, as such we convert them using lubridate's function ymd() ymd_hms() and parse them into date-times.   
+ Variable SHIFT_D and EVENT_DT are observed to be in dbl and chr format, as such we convert them using lubridate's function ymd() ymd_hms() and parse them into date-times.   
 
-```{r echo=TRUE}
+```{r }
+
 ZL_DF$SHIFT_D = ymd(as.character(ZL_DF$SHIFT_D))
 ZL_DF$EVENT_DT = ymd_hms(as.character(ZL_DF$EVENT_DT))
-
+glimpse(ZL_DF,70)
 ```
 
 
-### 3.1 Data Visualisation for Pareto Charts
+## 2.3 Data Visualisation for Pareto Charts
 
-ggplot
-stat_pareto()
 
-using ggplot
-#### 3.1.1 summarize data 
 
-We summarize the dataset by the total and average of Wait, Travel, Unproductive and Non-work time, group by the following attributes which will be used as filters for R shiny app. The three millions records now reduced to twelves thousand records which will improve the response time of the pareto charts. A final aggregation for the Pareto chart is done by actual and average time. 
+### 2.3.1 ggplot Pareto Chart - Data Prep 
 
-```{r echo=TRUE}
+To improve the response time we summarize the data set by the *total* and *average of Wait*, *Travel*, *Unproductive* and *Non-work time*, and group by the following attributes which will be used as filters subsequently when building into R shiny app. A final aggregation *agg1* for the Pareto chart is done by actual and average time. 
+
+```{r }
 
 agg_base <-  ZL_DF %>%
   group_by(SHIFT_D,EVENT_SHIFT_I,Terminal,MOVE_OP_C,CNTR_TYPE_C,EQUIPMENT_TYPE_C) %>%
@@ -162,7 +206,7 @@ agg_base <-  ZL_DF %>%
 
   ungroup()
 ```
-```{r echo=TRUE}
+```{r }
 agg1 <- agg_base %>%
    dplyr::summarise(Counts = sum(N),
                     Total_WAIT_TIME = sum(Total_WAIT_TIME),
@@ -176,18 +220,17 @@ agg1 <- agg_base %>%
                     
                     Total_Duration = sum(Total_TRAVEL_TIME+Total_WAIT_TIME+Total_UNPRODUCTIVE_TIME+Total_NON_WORK_TIME)
                     )
-
+paged_table(agg1)
 ```
 
-#### 3.1.2 Dataframe and wrap into ggplot.
+### 2.3.2 Dataframe and wrap into ggplot.
 
-dataframe 
-convert minutes to day unit as the total value is too huge.
-plot using ggplot and wrap into plotly for interactively with ggplotly()
+In this assignment, we will be using PM wait time as the measurement which can be toggled across the different time indicators. 
+We data frame the result and wrap into ggplot. As the figure for minutes unit is too huge, we convert it into day unit using *lubridate* *time_length()*.
+And plot the Pareto chart using *ggplot* *stat_pareto()* before wrapping into *plotly* with *ggplotly()* for interactivity. From the Pareto Charts, we can see that the majority of the time spent in PM yard operation in wait time followed by travel time , non-work time and unproductive time. 
 
-(Note: The code for “Average PM operation duration" is similar by using "Avg_" columns and update the labels for title, y & x axis)
 
-```{r echo=TRUE}
+```{r }
 Data4Pareto <- data.frame(Time_Indicator = c("Travel Time","Wait Time", "Unproductive Time","Non-Work Time"),
                           Time = c(agg1$Total_TRAVEL_TIME,agg1$Total_WAIT_TIME,
                                    agg1$Total_UNPRODUCTIVE_TIME,
@@ -201,7 +244,7 @@ Data4Pareto$Time_Indicator <- factor(Data4Pareto$Time_Indicator, levels=Data4Par
 
 ```
 
-```{r}
+```{r }
  
 
 p3 <- ggplot(Data4Pareto, aes(x=Time_Indicator, y=Mandays)) +
@@ -212,12 +255,11 @@ p3 <- ggplot(Data4Pareto, aes(x=Time_Indicator, y=Mandays)) +
   labs(title = "Total PM Operation Duration - Pareto Chart", y = "Mandays" , x = "Time spent category"  ) 
 
 ggp3 <- ggplotly(p3)
-
-p3
 ggp3
+
 ```
 
-```{R}
+```{R }
 ### average
 AvgData4Pareto <- data.frame(Time_Indicator = c("Travel Time","Wait Time", "Unproductive Time","Non-Work Time"),
                              Time = c(agg1$Avg_TRAVEL_TIME,
@@ -236,76 +278,70 @@ p4 <- ggplot(AvgData4Pareto, aes(x=Time_Indicator , y=Time)) +
   labs(title = "Average PM Operation Duration - Pareto Chart", y = "Time (mins)" , x = "Time spent category"  ) 
 
 ggp4 <- ggplotly(p4)
-
-p4
 ggp4
-
 ```
 
 
-#### 3.1.3 Paretochart by Qichart2
+```{r, fig.height = 5, fig.width = 12 }
+grid.arrange(p3, p4,ncol=2)
+
+```
+
+Although the ggplot Pareto chart can be rendered into plotly to have interactivity such as mouse hover tooltip for details, it does not work well with second Y axis. Thus, the static ggplot is more useful to provide the necessary information required.
+
+### 2.3.3 Pareto chart with qichart2
+
+*qichart2* provides a quick and easier way to plot using *paretochart()*. Compared to *stat_pareto()*, the code required is shorter and can be wrapped into ggplotly for interactively. However, the default function does not support second y axis and is useful for non-aggregated data as it counts by the records. The following example define long wait time >= 60 minutes to plot the pareto chart. This would allows us to pin point the problem by attributes such as terminal, operation , equipment and container type.
 
 
-quick and simple way to plot using paretochart()
-
-applicable to non aggregated dataset.
-Also able to wrap into ggplotly. 
-
-```{R echo = TRUE}
+```{R }
 
 # Variable to set Long waiting time definition
 longwait <- c(60)
-
 ZL_DF_longwait  <- subset(ZL_DF,ZL_DF$PM_WAIT_TIME_Q >= longwait)
 
 
 paretochart2 <- paretochart(ZL_DF_longwait$Terminal,xlab = "Terminal",
                             title = paste("PM waiting time >=",longwait ,"mins (Pareto Chart)"),
                             aes(text = paste("Date:", x ,"\n","Avg PM Wait Time:", round(y, 2)) ))
- 
- ggparetoTerminal <- ggplotly( paretochart2)
- ggparetoTerminal
-# 
-# 
-# ggparetoMOVE_OP_C <- ggplotly(paretochart(ZL_DF_longwait$MOVE_OP_C,xlab = "Operation Type"))
-# ggparetoMOVE_OP_C
-# 
-# ggparetoLENGTH_Q <- ggplotly(paretochart(ZL_DF_longwait$LENGTH_Q,xlab = "Container Length"))
-# ggparetoLENGTH_Q
-# 
-# ggparetoCNTR_TYPE_C <- ggplotly(paretochart(ZL_DF_longwait$CNTR_TYPE_C,xlab = "Container Type"))
-# ggparetoCNTR_TYPE_C
-# 
-## ggparetoEQUIPMENT_TYPE_C <- ggplotly(paretochart(ZL_DF_longwait$EQUIPMENT_TYPE_C,xlab = "Equipment Type"))
-# ggparetoEQUIPMENT_TYPE_C
-# # Print data frame
 
+ ggparetoTerminal <- ggplotly( paretochart2)
+ 
+ ggparetoMOVE_OP_C <- ggplotly(paretochart(ZL_DF_longwait$MOVE_OP_C,xlab = "Operation Type"))
+ ggparetoLENGTH_Q <- ggplotly(paretochart(ZL_DF_longwait$LENGTH_Q,xlab = "Container Length"))
+ ggparetoCNTR_TYPE_C <- ggplotly(paretochart(ZL_DF_longwait$CNTR_TYPE_C,xlab = "Container Type"))
+ ggparetoEQUIPMENT_TYPE_C <- ggplotly(paretochart(ZL_DF_longwait$EQUIPMENT_TYPE_C,xlab = "Equipment Type"))
+ 
+ ggparetoTerminal
+ ggparetoMOVE_OP_C
+ ggparetoLENGTH_Q
+ ggparetoCNTR_TYPE_C
+ ggparetoEQUIPMENT_TYPE_C
+ 
 ```
 
 
+## 2.4 Data Visualisation for Control Chart
 
-### 3.2 Data Visualisation for Control Chart
+The following are the three packages explored for the assignment to plot control charts in R. The packages are all suitable to plot the required control chart types to support the analysis.
 
+* **qcc** - Statistical quality control charts 
+* **ggQC** - Quality Control Charts for ggplot2 
+* **qicharts2** - Quality improvement charts
 
+qcc is easy to use and provides comprehensive plot of control chart with a simple and a more traditional statistical reporting plot. However, it does not support ggplotly for interactivity and the data need to be grouped into wide table with each observation as a separate column.
 
-
-#### Choice of Packages to render control chart
-
-Three options
-
-ggQC - stat_QC however its QC overlay doesnt work well with plotly.  
-Qicharts2
-```{r}
+```{r }
 
 qq <- qcc.groups(data = ZL_DF$PM_WAIT_TIME_Q, ZL_DF$SHIFT_D)
 q1 = qcc(qq, type = "xbar", nsigmas = 3)
 
 ```
 
+ggplot's stat_qc() provides the most aesthetically pleasing control chart. Despite stat_QC() being a function in ggplot, the three sigma reference lines and labels are not supported by ggplotly. 
 
-```{r}
+```{r }
 
-ZL_DF 
 XbarR <- ggplot(ZL_DF, aes(x = SHIFT_D, y = PM_WAIT_TIME_Q)) +
   stat_summary(fun = mean, geom = "point") +
   stat_summary(fun = mean, geom = "line")+
@@ -315,8 +351,13 @@ XbarR <- ggplot(ZL_DF, aes(x = SHIFT_D, y = PM_WAIT_TIME_Q)) +
           show.1n2.sigma = T) 
 
 XbarR
+
 ```
-```{r}
+
+
+qichart2 provides comparable easy to use function to generate the control charts. It is also aesthetically clean and pleasing and qic() can be integrated into ggplot and plotly for interactivity. (Details will be discussed in the next segment.)
+
+```{r }
 
 p1 <- qic(PM_WAIT_TIME_Q,x = SHIFT_D ,data = ZL_DF,chart = 'xbar', ylab = 'Avg WAIT_TIME(Mins)', xlab = 'Date')
 p1
@@ -325,21 +366,13 @@ p1
 
 
 
-unfortunately ggQC is fully compatible with Plotly. the reference line and annotation will be dropped
+### 2.4.1 Mean(Xbar) chart and Standard deviation(S) chart with Qicharts2
 
-https://www.qimacros.com/free-excel-tips/control-chart-limits/
-Is it continuous or discrete?
-What is the sample size?
-Is the sample size constant?
-Each type of data has its own distinct formula for sigma and, therefore, its own type of control chart.
+We use Xbar and S control charts together for the average measurement of PM Wait Time
 
-final solution
-PICharts to convert to ggplot then wrap to plotly to achieve control chart.  
-
-#### 3.2.1 Xbar chart and S chart with Qicharts2
 ```{r}
 
-#p1 <- qic(PM_WAIT_TIME_Q,x = SHIFT_D ,data = ZL_DF,chart = 'xbar', ylab = 'Avg WAIT_TIME(Mins)', xlab = 'Date')
+p1 <- qic(PM_WAIT_TIME_Q,x = SHIFT_D ,data = ZL_DF,chart = 'xbar', ylab = 'Avg WAIT_TIME(Mins)', xlab = 'Date') 
 p2 <- qic(PM_WAIT_TIME_Q,x = SHIFT_D ,data = ZL_DF,chart = 's', ylab = 'Avg WAIT_TIME(Mins), 2019', xlab = 'Date')
 
 # storing PIcharts into data.frame
@@ -347,7 +380,7 @@ df1 <- p1$data
 df2 <- p2$data
 ```
 
-#### load into ggplot
+#### 2.4.1.1 load qic() into ggplot
 ```{r}
 
 ggp1 <- ggplot(df1, aes(x = ymd(x) , y = y , group = 1, text = paste("Date:", x ,"\n","Avg PM Wait Time:", round(y, 2)))) +
@@ -364,7 +397,6 @@ ggp1 <- ggplot(df1, aes(x = ymd(x) , y = y , group = 1, text = paste("Date:", x 
     labs(title = "Xbar Chart PM Wait Time, 2019" ,
        y = "Avg WAIT_TIME(Mins)", x = "Date")
 
-#ggp1
 ggp2 <- ggplot(df2, aes(x = ymd(x) , y = y , group = 1,text = paste("Date:", x ,"\n","Avg PM Wait Time:", round(y, 2)))) +
   theme_minimal() + 
   geom_line(color = "steelblue", size = 1) +
@@ -382,7 +414,7 @@ ggp2 <- ggplot(df2, aes(x = ymd(x) , y = y , group = 1,text = paste("Date:", x ,
 ```
 
 
-#### convert into plotly and add annotations
+#### 2.4.1.2 Convert into plotly and add annotations
 ```{r}
 fig1 <- ggplotly(ggp1, tooltip=c("text")) 
   
@@ -460,7 +492,9 @@ fig2
 
 
 
-#### facets
+#### 2.4.1.3 Applying facets
+
+Facets is used to provide an overview breakdown by the various attributes of the measurement. In which filters can be applied to focus on the those that shows higher fluctuation outside the control limits.
 
 ```{r}
 
@@ -519,7 +553,10 @@ fig4
 
 
 
-#### I(individual) and MR(moving range) chart
+### 2.4.2 Individual(I) and Moving Range(MR) chart
+
+I and MR Control charts are used together to show absolute difference between each data points. which allows us to looking into individual events that are out of the control limits. From the I-chart  we can see that operations no 29 and 77 are out of the upper control limit(UCL), to investigate further for the root cause. While for MR-chart shows the extreme change in waiting time point 29 and 30. 
+
 ```{r}
 last_N = 100
  ZL_DF_tail <- tail(ZL_DF, last_N)
@@ -528,7 +565,6 @@ P_I <- qic(PM_WAIT_TIME_Q, data = ZL_DF_tail, chart = 'i',  ylab = 'PM_WAIT_TIME
 P_MR <- qic(PM_WAIT_TIME_Q, data = ZL_DF_tail, chart = 'mr',  ylab = 'PM_WAIT_TIME', xlab = 'Operations no.' )
 
 ```
-
 
 ```{r}
 DF_I = P_I$data
@@ -649,7 +685,9 @@ fig_MR
 
 ```
 
-#### C(Count) U(Rate) P(Proportion)
+### 2.4.2 Count(C), Rate(U) & Proportion(U) Control Chart
+
+We use C-Chart to count the number of events that shows high PM Waiting time. This in turn will allow us to spot any spike changes of high wait time events.
 
 ```{r}
  longwait <- c(30)
@@ -740,6 +778,9 @@ fig_C
 
 ```
 
+While the Proportion P-Chart is used to plot the proportion of PM high wait time. 
+
+
 ```{r}
 DF_P = P_P$data
 
@@ -799,6 +840,8 @@ fig_P
 
 ```
 
+Lastly the Rate U-Chart look into the rate by the number of Long PM wait time events per 1000 containers/events.
+
 ```{r}
 DF_U = P_U$data
 
@@ -856,13 +899,15 @@ fig_U<- fig_U %>% add_annotations(
 fig_U
 ```
 
-### 4.0 Final Data Visualisation
+# 3.0 Final Data Visualisation
 
-#### limitation 
+
+
+
+# 4.0 Advantages of incorportating interactivity
+
+# 5.0 limitation and future improvement
+
+limitation 
 However, minor to moderate shifts may go unnoticed by the 3-sigma rule for long periods of time.
 With fewer data points, they lose sensitivity (more false negatives), and with more data points they lose specificity (more false positives).
-
-
-### 5.0 Advantages of incorportating interactivity
-
-### 6.0 limitation and future improvement
