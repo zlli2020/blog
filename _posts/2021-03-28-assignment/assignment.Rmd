@@ -11,7 +11,7 @@ output:
     toc: true
     toc_depth: 2
     self_contained: false,
-    code_folding = TRUE
+    code_folding:  TRUE
 ---
 
 
