@@ -100,17 +100,13 @@ The data are examined using a control chart to determine if the problem is speci
 
 
 
-
-## 1.4 Sketch of Proposed Visualisation
-
-
-## 1.5 Interactivity
+## 1.4 Interactivity
 
 The following interactive features are proposed to be incorporated in the data visualizations to enhance usability and user experience: 
 
-Data filter: To allow users to filter and zoom into the data by Date, Terminal, Equipment and container types to examine the patterns across time and space. 
+Data filter: To allow users to filter and zoom into the data by Date, Terminal, Equipment and container types to examine the patterns across time and space. This also allows users to flow from high-level overview and narrow down to data on a higher granularity.
 
-Use of tooltips: To provide details when user hovers on the chart objects. 
+Use of tooltips: To enhance user experience when user hovers over the chart objects to provide on-demand details without having too much information cluttered on the chart.
 
 When we explore and try to make sense of data, the Data visualization help us to follow the
 flow of "overview first, zoom and filter into details", bouncing back and forth,
@@ -185,7 +181,6 @@ glimpse(ZL_DF,70)
 ## 2.3 Data Visualisation for Pareto Charts
 
 
-
 ### 2.3.1 ggplot Pareto Chart - Data Prep 
 
 To improve the response time we summarize the data set by the *total* and *average of Wait*, *Travel*, *Unproductive* and *Non-work time*, and group by the following attributes which will be used as filters subsequently when building into R shiny app. A final aggregation *agg1* for the Pareto chart is done by actual and average time. 
@@ -225,7 +220,7 @@ paged_table(agg1)
 
 ### 2.3.2 Dataframe and wrap into ggplot.
 
-In this assignment, we will be using PM wait time as the measurement which can be toggled across the different time indicators. 
+In this assignment, we will be using PM wait time as the measurement which can be toggled between the different time indicators when built into R Shiny App. 
 We data frame the result and wrap into ggplot. As the figure for minutes unit is too huge, we convert it into day unit using *lubridate* *time_length()*.
 And plot the Pareto chart using *ggplot* *stat_pareto()* before wrapping into *plotly* with *ggplotly()* for interactivity. From the Pareto Charts, we can see that the majority of the time spent in PM yard operation in wait time followed by travel time , non-work time and unproductive time. 
 
@@ -287,7 +282,7 @@ grid.arrange(p3, p4,ncol=2)
 
 ```
 
-Although the ggplot Pareto chart can be rendered into plotly to have interactivity such as mouse hover tooltip for details, it does not work well with second Y axis. Thus, the static ggplot is more useful to provide the necessary information required.
+Although the ggplot Pareto chart can be rendered into plotly to have interactivity such as mouse hover tooltip for details, it does not work well with second Y axis. Thus, the static ggplot is more useful to provide the required information. 
 
 ### 2.3.3 Pareto chart with qichart2
 
@@ -687,7 +682,7 @@ fig_MR
 
 ### 2.4.2 Count(C), Rate(U) & Proportion(U) Control Chart
 
-We use C-Chart to count the number of events that shows high PM Waiting time. This in turn will allow us to spot any spike changes of high wait time events.
+We use C-Chart to count the number of events that exhibits high PM Waiting time. This in turn will allow us to spot any spike changes of high wait time events.
 
 ```{r}
  longwait <- c(30)
@@ -840,7 +835,7 @@ fig_P
 
 ```
 
-Lastly the Rate U-Chart look into the rate by the number of Long PM wait time events per 1000 containers/events.
+Lastly the Rate U-Chart look into the rate by the number of Long PM wait time events per 1000 containers/events. Different from P-Chart, the denominator can be changed to other measurement such as per 10 KM traveled or Working hours.
 
 ```{r}
 DF_U = P_U$data
@@ -899,14 +894,14 @@ fig_U<- fig_U %>% add_annotations(
 fig_U
 ```
 
-# 3.0 Final Data Visualisation
+# 3.0 Sketch of Proposed Visualisation
 
 
 
 
-# 4.0 Advantages of incorportating interactivity
 
-# 5.0 limitation and future improvement
+
+# 4.0 limitation and future improvement
 
 limitation 
 However, minor to moderate shifts may go unnoticed by the 3-sigma rule for long periods of time.
