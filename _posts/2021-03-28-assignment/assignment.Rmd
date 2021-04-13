@@ -930,12 +930,12 @@ The filters allow the user to filter and zoom into the data based on their selec
 
 
 
-<br> ![](pareto1.png){width=70%} <br> 
+<br> ![](pareto1.png){width=100%} <br> 
 
 Once the user identify the highest frequency of the problem, they could move on to the control chart analysis for quality improvement of PM productivity. Similarly for the control chart, the user can select the type of control chart to use for the different perspective for the process monitoring. The filters and parameter selections remain largely the same with additional button to toggle the time indicator to select the PM time spend measures.
 
 
-<br> ![](cchart1.png){width=70%} <br> 
+<br> ![](cchart1.png){width=100%} <br> 
 
 This way, the user would be able to analyze from overview, funnel down into details, and going front and back in a systematic and continuous flow to focus on their analysis.
 
