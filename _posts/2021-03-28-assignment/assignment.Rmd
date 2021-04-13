@@ -925,7 +925,7 @@ The Tab will allow toggling of different Pareto and Control Charts.
 
 <br> ![](pic2.png){width=70%} <br> 
 
-
+..
 
 
 # 4.0 Limitation and Future Improvement
