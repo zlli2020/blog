@@ -919,13 +919,27 @@ fig_U
 
 # 3.0 Sketch of Proposed Visualisation - submodule
 
-The Pareto and Control chart modules will share the filters on the left navigation.
+Pareto Analysis and Control Chart Analysis will be on two different pages on the left navigation menu. This is to reduce the number of panel tabs required for the different charts.
 
-The Tab will allow toggling of different Pareto and Control Charts.
+For the Pareto Analysis page. We have two panels, namely Overview and breakdown for the users to explore and identify the most frequent time spent for PM operations. 
 
-<br> ![](pic2.png){width=70%} <br> 
+The date range slider on the top right allows to user to determine the date range for their analysis. The apply button is to trigger the data generation when user requires the data to re-aggregate based on the new the date range and time indicator. It is important as the data set is massive  it should be only trigger once the scope is confirm. 
 
-..
+The filters allow the user to filter and zoom into the data based on their selection of the attribute on the fly. Since this are mainly applying to the aggregated data set, we may allow the changes to trigger upon users' selection. However we would still need to test during shiny app development to determine if the submit button is required. These interactive web approach would allow users to dice and slice to narrow down on the study objectives.
+
+
+
+
+<br> ![](pareto1.png){width=70%} <br> 
+
+Once the user identify the highest frequency of the problem, they could move on to the control chart analysis for quality improvement of PM productivity. Similarly for the control chart, the user can select the type of control chart to use for the different perspective for the process monitoring. The filters and parameter selections remain largely the same with additional button to toggle the time indicator to select the PM time spend measures.
+
+
+<br> ![](cchart1.png){width=70%} <br> 
+
+This way, the user would be able to analyze from overview, funnel down into details, and going front and back in a systematic and continuous flow to focus on their analysis.
+
+
 
 
 # 4.0 Limitation and Future Improvement
